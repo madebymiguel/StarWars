@@ -10,10 +10,12 @@ export default function PlanetGrid() {
   const [fetchedPlanets, setFetchedPlanets] = useState<Planet[]>([]);
 
   useEffect(() => {
-    fetchAllPlanets().then((data) => {
-      setFetchedPlanets(data);
-    });
-    setIsFetchingPlanets(true);
+    if (!isFetchingPlanets) {
+      fetchAllPlanets().then((data) => {
+        setFetchedPlanets(data);
+        setIsFetchingPlanets(true);
+      });
+    }
   }, []);
 
   const planetGridItems = useMemo(() => {

@@ -10,10 +10,12 @@ export default function PeopleGrid() {
   const [fetchedPeople, setFetchedPeople] = useState<People[]>([]);
 
   useEffect(() => {
-    fetchAllPeople().then((data) => {
-      setFetchedPeople(data);
-    });
-    setIsFetchingPeople(true);
+    if (!isFetchingPeople) {
+      fetchAllPeople().then((data) => {
+        setFetchedPeople(data);
+        setIsFetchingPeople(true);
+      });
+    }
   }, []);
 
   const peopleGridItems = useMemo(() => {

@@ -10,10 +10,12 @@ export default function VehicleGrid() {
   const [fetchedVehicles, setFetchedVehicles] = useState<Vehicle[]>([]);
 
   useEffect(() => {
-    fetchAllVehicles().then((data) => {
-      setFetchedVehicles(data);
-    });
-    setIsFetchingVehicles(true);
+    if (!isFetchingVehicles) {
+      fetchAllVehicles().then((data) => {
+        setFetchedVehicles(data);
+        setIsFetchingVehicles(true);
+      });
+    }
   }, []);
 
   const vehicleGridItems = useMemo(() => {

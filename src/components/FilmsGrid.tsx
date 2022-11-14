@@ -10,10 +10,12 @@ export default function FilmGrid() {
   const [fetchedFilms, setFetchedFilms] = useState<Film[]>([]);
 
   useEffect(() => {
-    fetchAllFilms().then((data) => {
-      setFetchedFilms(data);
-    });
-    setIsFetchingFilms(true);
+    if (!isFetchingFilms) {
+      fetchAllFilms().then((data) => {
+        setFetchedFilms(data);
+        setIsFetchingFilms(true);
+      });
+    }
   }, []);
 
   const filmGridItems = useMemo(() => {

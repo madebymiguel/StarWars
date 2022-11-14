@@ -10,10 +10,12 @@ export default function SpecieGrid() {
   const [fetchedSpecies, setFetchedSpecies] = useState<Specie[]>([]);
 
   useEffect(() => {
-    fetchAllSpecies().then((data) => {
-      setFetchedSpecies(data);
-    });
-    setIsFetchingSpecies(true);
+    if (!isFetchingSpecies) {
+      fetchAllSpecies().then((data) => {
+        setFetchedSpecies(data);
+        setIsFetchingSpecies(true);
+      });
+    }
   }, []);
 
   const specieGridItems = useMemo(() => {

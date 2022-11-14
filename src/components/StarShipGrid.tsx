@@ -10,11 +10,12 @@ export default function StarShipGrid() {
   const [fetchedStarShips, setFetchedStarShips] = useState<StarShip[]>([]);
 
   useEffect(() => {
-    fetchAllStarShips().then(async (data) => {
-      setFetchedStarShips(data);
-    });
-
-    setIsFetchingStarShips(true);
+    if (!isFetchingStarShips) {
+      fetchAllStarShips().then(async (data) => {
+        setFetchedStarShips(data);
+        setIsFetchingStarShips(true);
+      });
+    }
   }, []);
 
   const starShipGridItems = useMemo(() => {

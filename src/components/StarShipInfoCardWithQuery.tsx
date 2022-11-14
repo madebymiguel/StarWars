@@ -26,8 +26,8 @@ export default function StarShipInfoCardWithQuery() {
         fetchFromURLArray(starShipData.films).then((films: Film[]) => {
           setFilms(films);
         });
+        setFinishedFetching(true);
       });
-      setFinishedFetching(true);
     }
   }, []);
 

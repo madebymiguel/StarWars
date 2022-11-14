@@ -41,8 +41,8 @@ export default function FilmInfoCardWithQuery() {
         fetchFromURLArray(filmData.species).then((species: Specie[]) => {
           setSpecies(species);
         });
+        setFinishedFetching(true);
       });
-      setFinishedFetching(true);
     }
   }, []);
 

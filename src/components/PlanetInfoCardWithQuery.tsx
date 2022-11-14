@@ -26,8 +26,8 @@ export default function PlanetInfoCardWithQuery() {
         fetchFromURLArray(planetData.films).then((films: Film[]) => {
           setFilms(films);
         });
+        setFinishedFetching(true);
       });
-      setFinishedFetching(true);
     }
   }, []);
 

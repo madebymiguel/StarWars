@@ -44,8 +44,8 @@ export default function PeopleInfoCardWithQuery() {
             setStarShips(starShips);
           }
         );
+        setFinishedFetching(true);
       });
-      setFinishedFetching(true);
     }
   }, []);
 

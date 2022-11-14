@@ -26,8 +26,8 @@ export default function VehicleInfoCardWithQuery() {
         fetchFromURLArray(vehicleData.films).then((films: Film[]) => {
           setFilms(films);
         });
+        setFinishedFetching(true);
       });
-      setFinishedFetching(true);
     }
   }, []);
 

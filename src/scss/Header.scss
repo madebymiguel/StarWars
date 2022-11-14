@@ -1,0 +1,41 @@
+@import "_variables";
+
+#header {
+  grid-area: header;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 1rem;
+  background-color: $gold;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  box-shadow: 0px 5px 10px -1px $box-shadow-grey;
+  width: 100%;
+
+  .title-link {
+    text-decoration: none;
+    color: black;
+
+    .title {
+      &:hover {
+        transform: translate(0px, -4px);
+      }
+
+      .title {
+        margin: 0px;
+      }
+    }
+
+    &:focus,
+    &:visited,
+    &:link,
+    &:active {
+      text-decoration: none;
+    }
+    &:hover {
+      color: $dark-red;
+    }
+  }
+}

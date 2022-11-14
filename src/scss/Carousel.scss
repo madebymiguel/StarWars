@@ -1,0 +1,46 @@
+@import "_variables";
+
+.link {
+  text-decoration: none;
+  text-transform: uppercase;
+  color: $black;
+
+  &:focus,
+  &:hover,
+  &:visited,
+  &:link,
+  &:active {
+    text-decoration: none;
+  }
+}
+
+.carousel-container {
+  grid-area: main;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+
+  .carousel-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    padding: 8px;
+    margin: 16px;
+    border-radius: 8px;
+    background-color: white;
+    width: 15rem;
+    height: 20rem;
+    box-shadow: 1px 1px 0px $box-shadow-grey, 2px 2px 0px $box-shadow-grey;
+    transform: translate(0px, 0px);
+    transition: all 0.333333s ease-out;
+    cursor: pointer;
+
+    &:hover {
+      transform: translate(0px, -8px);
+      box-shadow: 0 10px 15px -3px $box-shadow-grey;
+    }
+  }
+}

@@ -1,0 +1,69 @@
+@import "_variables";
+
+.grid-container {
+  grid-area: main;
+
+  .grid {
+    width: 100%;
+    max-width: 70rem;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    padding-bottom: 2rem;
+  }
+
+  .loading-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.link {
+  text-decoration: none;
+  color: $black;
+
+  &:focus,
+  &:hover,
+  &:visited,
+  &:link,
+  &:active {
+    text-decoration: none;
+  }
+}
+
+.grid-item-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 8px;
+  margin: 12px;
+  border-radius: 8px;
+  background-color: white;
+  width: 10rem;
+  height: 8rem;
+  box-shadow: 1px 1px 0px $box-shadow-grey, 2px 2px 0px $box-shadow-grey,
+    3px 3px 0px $box-shadow-grey, 4px 4px 0px $box-shadow-grey;
+  transform: translate(0px, 0px);
+  transition: all 0.333333s ease-out;
+  cursor: pointer;
+
+  &:hover {
+    transform: translate(0px, -8px);
+    box-shadow: 0 10px 15px -3px $box-shadow-grey;
+  }
+
+  .title {
+    margin: 0px;
+    text-align: center;
+  }
+}
+
+.film-grid-item-container {
+  @extend .grid-item-container;
+  height: 10.5rem;
+}

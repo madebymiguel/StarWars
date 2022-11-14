@@ -17,7 +17,6 @@ function FilmComponent({
   url: string;
 }) {
   const linkPath = getPathFromURL(url);
-  console.log("linkpath", linkPath);
 
   return (
     <>

@@ -9,7 +9,6 @@ export interface PlanetListProps {
 
 function PlanetComponent({ name, url }: { name: string; url: string }) {
   const linkPath = getPathFromURL(url);
-  console.log("linkpath", linkPath);
 
   return (
     <>

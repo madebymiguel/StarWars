@@ -9,7 +9,6 @@ export interface VehicleListProps {
 
 function VehicleComponent({ name, url }: { name: string; url: string }) {
   const linkPath = getPathFromURL(url);
-  console.log("linkpath", linkPath);
 
   return (
     <>

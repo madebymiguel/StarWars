@@ -9,7 +9,6 @@ export interface StarShipListProps {
 
 function StarShipComponent({ name, url }: { name: string; url: string }) {
   const linkPath = getPathFromURL(url);
-  console.log("linkpath", linkPath);
 
   return (
     <>

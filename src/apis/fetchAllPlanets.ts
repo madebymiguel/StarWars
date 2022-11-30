@@ -1,11 +1,15 @@
-export default async function fetchAllPlanets() {
-  const numberOfPlanets = 60;
-  const allPlanetsToFetch = [];
+import { Planet } from "../types/Planet";
 
-  for (let i = 1; i <= numberOfPlanets; i++) {
-    allPlanetsToFetch.push(fetch(`https://swapi.dev/api/planets/${i}`));
+export default async function fetchAllPlanets() {
+  let nextPage = `https://swapi.dev/api/planets/`;
+  let planets: Planet[] = [];
+
+  while (nextPage) {
+    const res = await fetch(nextPage);
+    const { next, results } = await res.json();
+    nextPage = next;
+    planets = [...planets, ...results];
   }
 
-  const responses = await Promise.all(allPlanetsToFetch);
-  return await Promise.all(responses.map((response) => response.json()));
+  return planets;
 }

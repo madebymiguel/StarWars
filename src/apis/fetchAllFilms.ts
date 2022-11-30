@@ -1,11 +1,15 @@
-export default async function fetchAllFilms() {
-  const numberOfFilms = 6;
-  const allFilmsToFetch = [];
+import { Film } from "../types/Film";
 
-  for (let i = 1; i <= numberOfFilms; i++) {
-    allFilmsToFetch.push(fetch(`https://swapi.dev/api/films/${i}`));
+export default async function fetchAllFilms() {
+  let nextPage = `https://swapi.dev/api/films/`;
+  let films: Film[] = [];
+
+  while (nextPage) {
+    const res = await fetch(nextPage);
+    const { next, results } = await res.json();
+    nextPage = next;
+    films = [...films, ...results];
   }
 
-  const responses = await Promise.all(allFilmsToFetch);
-  return await Promise.all(responses.map((response) => response.json()));
+  return films;
 }

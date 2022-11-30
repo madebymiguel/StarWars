@@ -1,11 +1,15 @@
-export default async function fetchAllPeople() {
-  const numberOfPeople = 83;
-  const allPeopleToFetch = [];
+import { People } from "../types/People";
 
-  for (let i = 1; i <= numberOfPeople; i++) {
-    allPeopleToFetch.push(fetch(`https://swapi.dev/api/people/${i}`));
+export default async function fetchAllPeople() {
+  let nextPage = `https://swapi.dev/api/people/`;
+  let people: People[] = [];
+
+  while (nextPage) {
+    const res = await fetch(nextPage);
+    const { next, results } = await res.json();
+    nextPage = next;
+    people = [...people, ...results];
   }
 
-  const responses = await Promise.all(allPeopleToFetch);
-  return await Promise.all(responses.map((response) => response.json()));
+  return people;
 }

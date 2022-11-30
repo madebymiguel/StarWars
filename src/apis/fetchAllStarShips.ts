@@ -1,11 +1,15 @@
-export default async function fetchAllPeople() {
-  const numberOfStarShips = 75;
-  const allStarShipsToFetch = [];
+import { StarShip } from "../types/StarShip";
 
-  for (let i = 1; i <= numberOfStarShips; i++) {
-    allStarShipsToFetch.push(fetch(`https://swapi.dev/api/starships/${i}`));
+export default async function fetchAllStarShips() {
+  let nextPage = `https://swapi.dev/api/starships/`;
+  let starShips: StarShip[] = [];
+
+  while (nextPage) {
+    const res = await fetch(nextPage);
+    const { next, results } = await res.json();
+    nextPage = next;
+    starShips = [...starShips, ...results];
   }
 
-  const responses = await Promise.all(allStarShipsToFetch);
-  return await Promise.all(responses.map((response) => response.json()));
+  return starShips;
 }

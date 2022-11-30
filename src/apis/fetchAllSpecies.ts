@@ -1,11 +1,15 @@
-export default async function fetchAllSpecies() {
-  const numberOfSpecies = 37;
-  const allSpeciesToFetch = [];
+import { Specie } from "../types/Specie";
 
-  for (let i = 1; i <= numberOfSpecies; i++) {
-    allSpeciesToFetch.push(fetch(`https://swapi.dev/api/species/${i}`));
+export default async function fetchAllSpecies() {
+  let nextPage = `https://swapi.dev/api/species/`;
+  let species: Specie[] = [];
+
+  while (nextPage) {
+    const res = await fetch(nextPage);
+    const { next, results } = await res.json();
+    nextPage = next;
+    species = [...species, ...results];
   }
 
-  const responses = await Promise.all(allSpeciesToFetch);
-  return await Promise.all(responses.map((response) => response.json()));
+  return species;
 }

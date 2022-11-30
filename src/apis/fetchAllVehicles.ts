@@ -1,11 +1,15 @@
-export default async function fetchAllVehicles() {
-  const numberOfVehicles = 76;
-  const allVehiclesToFetch = [];
+import { Vehicle } from "../types/Vehicle";
 
-  for (let i = 1; i <= numberOfVehicles; i++) {
-    allVehiclesToFetch.push(fetch(`https://swapi.dev/api/vehicles/${i}`));
+export default async function fetchAllVehicles() {
+  let nextPage = `https://swapi.dev/api/starships/`;
+  let vehicles: Vehicle[] = [];
+
+  while (nextPage) {
+    const res = await fetch(nextPage);
+    const { next, results } = await res.json();
+    nextPage = next;
+    vehicles = [...vehicles, ...results];
   }
 
-  const responses = await Promise.all(allVehiclesToFetch);
-  return await Promise.all(responses.map((response) => response.json()));
+  return vehicles;
 }

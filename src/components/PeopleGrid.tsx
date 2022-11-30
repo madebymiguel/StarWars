@@ -10,21 +10,15 @@ export default function PeopleGrid() {
   const [fetchedPeople, setFetchedPeople] = useState<People[]>([]);
 
   useEffect(() => {
-    if (!isFetchingPeople) {
-      fetchAllPeople().then((data) => {
-        setFetchedPeople(data);
-        setIsFetchingPeople(true);
-      });
-    }
+    fetchAllPeople().then((data) => {
+      setFetchedPeople(data);
+      setIsFetchingPeople(true);
+    });
   }, []);
 
   const peopleGridItems = useMemo(() => {
     return fetchedPeople.map((people: People) => {
-      if (!people.detail) {
-        return (
-          <GridItem key={people.url} name={people.name} url={people.url} />
-        );
-      }
+      return <GridItem key={people.url} name={people.name} url={people.url} />;
     });
   }, [fetchedPeople]);
 

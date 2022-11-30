@@ -10,25 +10,21 @@ export default function SpecieGrid() {
   const [fetchedSpecies, setFetchedSpecies] = useState<Specie[]>([]);
 
   useEffect(() => {
-    if (!isFetchingSpecies) {
-      fetchAllSpecies().then((data) => {
-        setFetchedSpecies(data);
-        setIsFetchingSpecies(true);
-      });
-    }
+    fetchAllSpecies().then((data) => {
+      setFetchedSpecies(data);
+      setIsFetchingSpecies(true);
+    });
   }, []);
 
   const specieGridItems = useMemo(() => {
     return fetchedSpecies.map((specie: Specie) => {
-      if (!specie.detail) {
-        return (
-          <GridItem
-            key={specie.url}
-            name={specie.name.toUpperCase()}
-            url={specie.url}
-          />
-        );
-      }
+      return (
+        <GridItem
+          key={specie.url}
+          name={specie.name.toUpperCase()}
+          url={specie.url}
+        />
+      );
     });
   }, [fetchedSpecies]);
 

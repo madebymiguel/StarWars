@@ -10,26 +10,22 @@ export default function FilmGrid() {
   const [fetchedFilms, setFetchedFilms] = useState<Film[]>([]);
 
   useEffect(() => {
-    if (!isFetchingFilms) {
-      fetchAllFilms().then((data) => {
-        setFetchedFilms(data);
-        setIsFetchingFilms(true);
-      });
-    }
+    fetchAllFilms().then((data) => {
+      setFetchedFilms(data);
+      setIsFetchingFilms(true);
+    });
   }, []);
 
   const filmGridItems = useMemo(() => {
     return fetchedFilms.map((film: Film) => {
-      if (!film.detail) {
-        return (
-          <FilmGridItem
-            key={film.url}
-            episode_id={film.episode_id}
-            title={film.title.toUpperCase()}
-            url={film.url}
-          />
-        );
-      }
+      return (
+        <FilmGridItem
+          key={film.url}
+          episode_id={film.episode_id}
+          title={film.title.toUpperCase()}
+          url={film.url}
+        />
+      );
     });
   }, [fetchedFilms]);
 

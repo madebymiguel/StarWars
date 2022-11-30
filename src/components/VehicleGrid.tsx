@@ -10,25 +10,21 @@ export default function VehicleGrid() {
   const [fetchedVehicles, setFetchedVehicles] = useState<Vehicle[]>([]);
 
   useEffect(() => {
-    if (!isFetchingVehicles) {
-      fetchAllVehicles().then((data) => {
-        setFetchedVehicles(data);
-        setIsFetchingVehicles(true);
-      });
-    }
+    fetchAllVehicles().then((data) => {
+      setFetchedVehicles(data);
+      setIsFetchingVehicles(true);
+    });
   }, []);
 
   const vehicleGridItems = useMemo(() => {
     return fetchedVehicles.map((vehicle: Vehicle) => {
-      if (!vehicle.detail) {
-        return (
-          <GridItem
-            key={vehicle.url}
-            name={vehicle.name.toUpperCase()}
-            url={vehicle.url}
-          />
-        );
-      }
+      return (
+        <GridItem
+          key={vehicle.url}
+          name={vehicle.name.toUpperCase()}
+          url={vehicle.url}
+        />
+      );
     });
   }, [fetchedVehicles]);
 

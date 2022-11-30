@@ -10,25 +10,17 @@ export default function StarShipGrid() {
   const [fetchedStarShips, setFetchedStarShips] = useState<StarShip[]>([]);
 
   useEffect(() => {
-    if (!isFetchingStarShips) {
-      fetchAllStarShips().then(async (data) => {
-        setFetchedStarShips(data);
-        setIsFetchingStarShips(true);
-      });
-    }
+    fetchAllStarShips().then(async (data) => {
+      setFetchedStarShips(data);
+      setIsFetchingStarShips(true);
+    });
   }, []);
 
   const starShipGridItems = useMemo(() => {
     return fetchedStarShips.map((starShip: StarShip) => {
-      if (!starShip.detail) {
-        return (
-          <GridItem
-            key={starShip.url}
-            name={starShip.name}
-            url={starShip.url}
-          />
-        );
-      }
+      return (
+        <GridItem key={starShip.url} name={starShip.name} url={starShip.url} />
+      );
     });
   }, [fetchedStarShips]);
 

@@ -10,25 +10,21 @@ export default function PlanetGrid() {
   const [fetchedPlanets, setFetchedPlanets] = useState<Planet[]>([]);
 
   useEffect(() => {
-    if (!isFetchingPlanets) {
-      fetchAllPlanets().then((data) => {
-        setFetchedPlanets(data);
-        setIsFetchingPlanets(true);
-      });
-    }
+    fetchAllPlanets().then((data) => {
+      setFetchedPlanets(data);
+      setIsFetchingPlanets(true);
+    });
   }, []);
 
   const planetGridItems = useMemo(() => {
     return fetchedPlanets.map((planet: Planet) => {
-      if (!planet.detail) {
-        return (
-          <GridItem
-            key={planet.url}
-            name={planet.name.toUpperCase()}
-            url={planet.url}
-          />
-        );
-      }
+      return (
+        <GridItem
+          key={planet.url}
+          name={planet.name.toUpperCase()}
+          url={planet.url}
+        />
+      );
     });
   }, [fetchedPlanets]);
 

@@ -50,7 +50,7 @@ export default function StarShipInfoCard({
         <table className="table-formatter">
           <tbody className="table-body-formatter">
             <tr className="table-row-formatter">
-              <th className="table-header-formatter">model</th>
+              <th className="table-header-formatter">Model</th>
               <td className="table-data-formatter">{model}</td>
             </tr>
 
@@ -66,7 +66,7 @@ export default function StarShipInfoCard({
 
             <tr className="table-row-formatter">
               <th className="table-header-formatter">Length</th>
-              <td className="table-data-formatter">{length}</td>
+              <td className="table-data-formatter">{length} m</td>
             </tr>
 
             <tr className="table-row-formatter">
@@ -86,7 +86,7 @@ export default function StarShipInfoCard({
 
             <tr className="table-row-formatter">
               <th className="table-header-formatter">Cargo Capacity</th>
-              <td className="table-data-formatter">{cargo_capacity}</td>
+              <td className="table-data-formatter">{cargo_capacity} kg</td>
             </tr>
 
             <tr className="table-row-formatter">
@@ -114,15 +114,11 @@ export default function StarShipInfoCard({
 
       <div className="pilot-container">
         <h3 className="sub-title">Known Pilots</h3>
-        <span className="lead-up">Some noteable pilots are:</span>
         <PeopleList people={pilots} />
       </div>
 
       <div className="film-container">
         <h3 className="sub-title">Film Appearances</h3>
-        <span className="lead-up">
-          This StarShip is well-known for its appearances in:
-        </span>
         <FilmList films={films} />
       </div>
     </div>

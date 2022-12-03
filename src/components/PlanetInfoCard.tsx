@@ -43,7 +43,7 @@ export default function PlanetInfoCard({
           <tbody className="table-body-formatter">
             <tr className="table-row-formatter">
               <th className="table-header-formatter">Diameter</th>
-              <td className="table-data-formatter">{diameter}</td>
+              <td className="table-data-formatter">{diameter} km</td>
             </tr>
 
             <tr className="table-row-formatter">
@@ -58,7 +58,7 @@ export default function PlanetInfoCard({
 
             <tr className="table-row-formatter">
               <th className="table-header-formatter">Surface Water</th>
-              <td className="table-data-formatter">{surface_water}</td>
+              <td className="table-data-formatter">{surface_water}%</td>
             </tr>
 
             <tr className="table-row-formatter">
@@ -75,23 +75,22 @@ export default function PlanetInfoCard({
               <th className="table-header-formatter">Rotation Period</th>
               <td className="table-data-formatter">{rotation_period}</td>
             </tr>
+
+            <tr className="table-row-formatter">
+              <th className="table-header-formatter">Population</th>
+              <td className="table-data-formatter">{population}</td>
+            </tr>
           </tbody>
         </table>
       </div>
 
       <div className="famous-people-container">
         <h3 className="sub-title">Feature People</h3>
-        <span className="lead-up">
-          Out of a population of {population}; some noteable people are:
-        </span>
         <PeopleList people={residents} />
       </div>
 
       <div className="feature-films-container">
         <h3 className="sub-title">Film Appearances</h3>
-        <span className="lead-up">
-          This planet is well-known for its appearances in:
-        </span>
         <FilmList films={films} />
       </div>
     </div>

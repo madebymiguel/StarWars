@@ -55,7 +55,7 @@ export default function SpecieInfoInfoCard({
 
             <tr className="table-row-formatter">
               <th className="table-header-formatter">Average Height</th>
-              <td className="table-data-formatter">{average_height}</td>
+              <td className="table-data-formatter">{average_height} cm</td>
             </tr>
 
             <tr className="table-row-formatter">
@@ -75,7 +75,7 @@ export default function SpecieInfoInfoCard({
 
             <tr className="table-row-formatter">
               <th className="table-header-formatter">Average Lifespan</th>
-              <td className="table-data-formatter">{average_lifespan}</td>
+              <td className="table-data-formatter">{average_lifespan} years</td>
             </tr>
 
             {/* <tr className="table-row-formatter">
@@ -93,17 +93,11 @@ export default function SpecieInfoInfoCard({
 
       <div className="people-container">
         <h3 className="sub-title">Famous People</h3>
-        <span className="lead-up">
-          Some noteable People from this specie are:
-        </span>
         <PeopleList people={people} />
       </div>
 
       <div className="film-container">
         <h3 className="sub-title">Film Appearances</h3>
-        <span className="lead-up">
-          This specie is well-known for its appearances in:
-        </span>
         <FilmList films={films} />
       </div>
     </div>

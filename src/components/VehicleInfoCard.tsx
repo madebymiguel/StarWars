@@ -62,7 +62,7 @@ export default function VehicleInfoCard({
 
             <tr className="table-row-formatter">
               <th className="table-header-formatter">Length</th>
-              <td className="table-data-formatter">{length}</td>
+              <td className="table-data-formatter">{length} m</td>
             </tr>
 
             <tr className="table-row-formatter">
@@ -82,7 +82,7 @@ export default function VehicleInfoCard({
 
             <tr className="table-row-formatter">
               <th className="table-header-formatter">Cargo Capacity</th>
-              <td className="table-data-formatter">{cargo_capacity}</td>
+              <td className="table-data-formatter">{cargo_capacity} kg</td>
             </tr>
 
             <tr className="table-row-formatter">
@@ -100,15 +100,11 @@ export default function VehicleInfoCard({
 
       <div className="pilot-container">
         <h3 className="sub-title">Known Users</h3>
-        <span className="lead-up">Some noteable Users are:</span>
         <PeopleList people={pilots} />
       </div>
 
       <div className="film-container">
         <h3 className="sub-title">Film Appearances</h3>
-        <span className="lead-up">
-          This StarShip is well-known for its appearances in:
-        </span>
         <FilmList films={films} />
       </div>
     </div>

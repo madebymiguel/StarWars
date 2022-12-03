@@ -17,7 +17,8 @@
   grid-template-areas:
     ". header header ."
     ". characteristic about ."
-    ". characteristic funfacts .";
+    ". characteristic films ."
+    ". characteristic vehicles .";
 
   padding: 20px;
   border-radius: 16px;
@@ -75,8 +76,13 @@
     @extend .container-format;
   }
 
-  .funfacts-container {
-    grid-area: funfacts;
+  .films-container {
+    grid-area: films;
+    @extend .container-format;
+  }
+
+  .vehicles-container {
+    grid-area: vehicles;
     @extend .container-format;
   }
 }
@@ -88,7 +94,8 @@
       "header"
       "characteristic"
       "about"
-      "funfacts";
+      "films"
+      "vehicles";
 
     .characteristic-container {
       padding-right: 0px;

@@ -52,12 +52,12 @@ export default function PeopleInfoCard({
           <tbody className="table-body-formatter">
             <tr className="table-row-formatter">
               <th className="table-header-formatter">Height</th>
-              <td className="table-data-formatter">{height}</td>
+              <td className="table-data-formatter">{height} cm</td>
             </tr>
 
             <tr className="table-row-formatter">
               <th className="table-header-formatter">Mass</th>
-              <td className="table-data-formatter">{mass}</td>
+              <td className="table-data-formatter">{mass} kg</td>
             </tr>
 
             <tr className="table-row-formatter">
@@ -71,7 +71,7 @@ export default function PeopleInfoCard({
             </tr>
 
             <tr className="table-row-formatter">
-              <th className="table-header-formatter">Eye_Color</th>
+              <th className="table-header-formatter">Eye Color</th>
               <td className="table-data-formatter">{eye_color}</td>
             </tr>
 
@@ -94,17 +94,18 @@ export default function PeopleInfoCard({
         <h3 className="sub-title">About</h3>
         <span className="lead-up">
           Was born in the year {birth_year}
+          {/* {on the planet of } */}
           {/* Add homeWorld */}
         </span>
-        <span className="lead-up">Is well-known for their appearances in:</span>
+      </div>
+
+      <div className="films-container">
+        <h3 className="sub-title">Film Apperances</h3>
         <FilmList films={films} />
       </div>
 
-      <div className="funfacts-container">
-        <h3 className="sub-title">Fun Facts</h3>
-        <span className="lead-up">
-          Cool Vehicles and StarShips that were used by this character:
-        </span>
+      <div className="vehicles-container">
+        <h3 className="sub-title">Vehicles and StarShips</h3>
         <VehicleList vehicles={vehicles} />
         <StarShipList starShips={starships} />
       </div>

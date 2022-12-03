@@ -2,11 +2,11 @@ import PlanetList from "./PlanetList";
 import SpecieList from "./SpecieList";
 import VehicleList from "./VehicleList";
 import StarShipList from "./StarShipList";
+import PeopleList from "./PeopleList";
 import { Specie } from "../types/Specie";
 import { Vehicle } from "../types/Vehicle";
 import { StarShip } from "../types/StarShip";
 import { Planet } from "../types/Planet";
-import PeopleList from "./PeopleList";
 import { People } from "../types/People";
 import "../scss/FilmInfoCard.scss";
 
@@ -74,43 +74,28 @@ export default function FlimInfoCard({
       </div>
 
       <div className="people-container">
-        <h3 className="sub-title">Characters</h3>
-        <span className="lead-up">
-          Well-known characters that made their appearances:
-        </span>
+        <h3 className="sub-title">Character Appearances</h3>
         <PeopleList people={characters} />
       </div>
 
       <div className="planet-container">
-        <h3 className="sub-title">Planets </h3>
-        <span className="lead-up">
-          Well-known planets that made their appearances:
-        </span>
+        <h3 className="sub-title">Planet Appearances</h3>
         <PlanetList planets={planets} />
       </div>
 
       <div className="starship-container">
-        <h3 className="sub-title">StarShips</h3>
-        <span className="lead-up">
-          Well-known starships that made their appearances:
-        </span>
+        <h3 className="sub-title">StarShip Appearances</h3>
         <StarShipList starShips={starships} />
       </div>
 
       <div className="vehicle-container">
-        <h3 className="sub-title">Vehicles</h3>
-        <span className="lead-up">
-          Well-known vehicles that made their appearances:
-        </span>
+        <h3 className="sub-title">Vehicle Appearances</h3>
         <VehicleList vehicles={vehicles} />
       </div>
 
       <div className="specie-container">
-        <h3 className="sub-title">Species</h3>
-        <span className="lead-up">
-          Well-known species that made their appearances:
-        </span>
-        {<SpecieList species={species} />}
+        <h3 className="sub-title">Specie Appearances</h3>
+        <SpecieList species={species} />
       </div>
     </div>
   );

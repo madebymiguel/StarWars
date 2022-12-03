@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "./Header";
-import Carousel from "./Carousel";
+import CategoryGrid from "./CategoryGrid";
 import PlanetGrid from "./PlanetGrid";
 import PeopleGrid from "./PeopleGrid";
 import FilmGrid from "./FilmsGrid";
@@ -21,7 +21,7 @@ export default function App() {
       <div id="page">
         <Header />
         <Routes>
-          <Route path="/" element={<Carousel />} />
+          <Route path="/" element={<CategoryGrid />} />
           <Route path="/planets">
             <Route index element={<PlanetGrid />} />
             <Route path=":index" element={<PlanetInfoCardWithQuery />} />

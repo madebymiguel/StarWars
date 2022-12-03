@@ -1,7 +1,7 @@
 import { Vehicle } from "../types/Vehicle";
 
 export default async function fetchAllVehicles() {
-  let nextPage = `https://swapi.dev/api/starships/`;
+  let nextPage = `https://swapi.dev/api/vehicles/`;
   let vehicles: Vehicle[] = [];
 
   while (nextPage) {

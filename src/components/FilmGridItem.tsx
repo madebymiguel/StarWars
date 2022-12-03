@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import Tilt from "react-parallax-tilt";
 import getPathFromURL from "../utils/getPathFromURL";
 import "../scss/Grid.scss";
 
@@ -16,14 +17,16 @@ export default function FilmGridItem({
   const linkPath = getPathFromURL(url);
 
   return (
-    <div className="film-grid-item-container">
-      <Link to={linkPath} className="link">
-        <h2 className="title">
-          {"Episode "}
-          {episode_id}
-        </h2>
-        <h2 className="title">{title}</h2>
-      </Link>
-    </div>
+    <Tilt>
+      <div className="film-grid-item-container">
+        <Link to={linkPath} className="link">
+          <h2 className="title">
+            {"Episode "}
+            {episode_id}
+          </h2>
+          <h2 className="title">{title}</h2>
+        </Link>
+      </div>
+    </Tilt>
   );
 }

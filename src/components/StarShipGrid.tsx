@@ -3,17 +3,31 @@ import GridItem from "./GridItem";
 import LoadingComponent from "./LoadingComponent";
 import fetchAllStarShips from "../apis/fetchAllStarShips";
 import { StarShip } from "../types/StarShip";
+import setGridFromSessionStorage from "../utils/setGridSessionStorage";
+import getGridFromSessionStorage from "../utils/getGridSessionStorage";
 import "../scss/Grid.scss";
 
 export default function StarShipGrid() {
   const [isFetchingStarShips, setIsFetchingStarShips] = useState(false);
   const [fetchedStarShips, setFetchedStarShips] = useState<StarShip[]>([]);
 
+  const sessionKey = "starShips";
+  const getStarShipSession = getGridFromSessionStorage(sessionKey);
+
   useEffect(() => {
-    fetchAllStarShips().then(async (data) => {
-      setFetchedStarShips(data);
-      setIsFetchingStarShips(true);
-    });
+    if (getStarShipSession === null) {
+      fetchAllStarShips().then(async (data) => {
+        setGridFromSessionStorage(sessionKey, data);
+        setFetchedStarShips(data);
+        setIsFetchingStarShips(true);
+      });
+    } else {
+      const gridData = getGridFromSessionStorage(sessionKey);
+      if (gridData) {
+        setFetchedStarShips(gridData);
+        setIsFetchingStarShips(true);
+      }
+    }
   }, []);
 
   const starShipGridItems = useMemo(() => {

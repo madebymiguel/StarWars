@@ -8,6 +8,8 @@ import SpecieList from "./SpecieList";
 import VehicleList from "./VehicleList";
 import StarShipList from "./StarShipList";
 import "../scss/PeopleInfoCard.scss";
+import PlanetList from "./PlanetList";
+import HomeWorld from "./Homeworld";
 
 export interface PeopleInfoCardProps {
   name: string;
@@ -52,12 +54,24 @@ export default function PeopleInfoCard({
           <tbody className="table-body-formatter">
             <tr className="table-row-formatter">
               <th className="table-header-formatter">Height</th>
-              <td className="table-data-formatter">{height} cm</td>
+              <td className="table-data-formatter">
+                {height === "unknown" ? (
+                  <span>unknown</span>
+                ) : (
+                  <span>{height} cm</span>
+                )}
+              </td>
             </tr>
 
             <tr className="table-row-formatter">
               <th className="table-header-formatter">Mass</th>
-              <td className="table-data-formatter">{mass} kg</td>
+              <td className="table-data-formatter">
+                {mass === "unknown" ? (
+                  <span>unknown</span>
+                ) : (
+                  <span>{mass} kg</span>
+                )}
+              </td>
             </tr>
 
             <tr className="table-row-formatter">
@@ -93,9 +107,8 @@ export default function PeopleInfoCard({
       <div className="about-container">
         <h3 className="sub-title">About</h3>
         <span className="lead-up">
-          Was born in the year {birth_year}
-          {/* {on the planet of } */}
-          {/* Add homeWorld */}
+          Born in the year {birth_year} on the planet of{" "}
+          <HomeWorld homeWorld={homeworld} />
         </span>
       </div>
 

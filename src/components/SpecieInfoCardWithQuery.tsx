@@ -23,9 +23,13 @@ export default function PlanetInfoCardWithQuery() {
     if (index) {
       fetchSpecie(index).then((specieData) => {
         setSpecie(specieData);
-        fetchFromURL(specieData.homeworld).then((homeWorld: Planet) => {
-          setHomeWorld(homeWorld);
-        });
+        fetchFromURL(specieData.homeworld)
+          .then((homeWorld: Planet) => {
+            setHomeWorld(homeWorld);
+          })
+          .catch((error) => {
+            setHomeWorld({} as Planet);
+          });
         fetchFromURLArray(specieData.people).then((people: People[]) => {
           setPeople(people);
         });

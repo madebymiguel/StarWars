@@ -43,7 +43,13 @@ export default function PlanetInfoCard({
           <tbody className="table-body-formatter">
             <tr className="table-row-formatter">
               <th className="table-header-formatter">Diameter</th>
-              <td className="table-data-formatter">{diameter} km</td>
+              <td className="table-data-formatter">
+                {diameter === "unknown" ? (
+                  <span>unknown</span>
+                ) : (
+                  <span>{diameter} km</span>
+                )}
+              </td>
             </tr>
 
             <tr className="table-row-formatter">
@@ -58,7 +64,13 @@ export default function PlanetInfoCard({
 
             <tr className="table-row-formatter">
               <th className="table-header-formatter">Surface Water</th>
-              <td className="table-data-formatter">{surface_water}%</td>
+              <td className="table-data-formatter">
+                {surface_water === "unknown" ? (
+                  <span>unknown</span>
+                ) : (
+                  <span>{surface_water}%</span>
+                )}
+              </td>
             </tr>
 
             <tr className="table-row-formatter">

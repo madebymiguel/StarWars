@@ -1,6 +1,7 @@
 import FilmList from "./FilmList";
 import PeopleList from "./PeopleList";
 import { Film } from "../types/Film";
+import HomeWorld from "./Homeworld";
 import { People } from "../types/People";
 import { Planet } from "../types/Planet";
 import "../scss/SpecieInfoCard.scss";
@@ -55,7 +56,15 @@ export default function SpecieInfoInfoCard({
 
             <tr className="table-row-formatter">
               <th className="table-header-formatter">Average Height</th>
-              <td className="table-data-formatter">{average_height} cm</td>
+              <td className="table-data-formatter">
+                {average_height === "unknown" ? (
+                  <span>unknown</span>
+                ) : average_height === "n/a" ? (
+                  <span>n/a</span>
+                ) : (
+                  <span>{average_height} cm</span>
+                )}
+              </td>
             </tr>
 
             <tr className="table-row-formatter">
@@ -75,13 +84,21 @@ export default function SpecieInfoInfoCard({
 
             <tr className="table-row-formatter">
               <th className="table-header-formatter">Average Lifespan</th>
-              <td className="table-data-formatter">{average_lifespan} years</td>
+              <td className="table-data-formatter">
+                {average_lifespan === "unknown" ? (
+                  <span>unknown</span>
+                ) : (
+                  <span>{average_lifespan} years</span>
+                )}
+              </td>
             </tr>
 
-            {/* <tr className="table-row-formatter">
+            <tr className="table-row-formatter">
               <th className="table-header-formatter">HomeWorld</th>
-              <td className="table-data-formatter">{homeworld}</td>
-            </tr> */}
+              <td className="table-data-formatter">
+                <HomeWorld homeWorld={homeworld} />
+              </td>
+            </tr>
 
             <tr className="table-row-formatter">
               <th className="table-header-formatter">Language</th>

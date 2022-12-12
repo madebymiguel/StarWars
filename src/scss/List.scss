@@ -18,3 +18,18 @@
     }
   }
 }
+
+.homeworld-link {
+  text-decoration: none;
+  color: black;
+
+  &:focus,
+  &:visited,
+  &:link,
+  &:active {
+    text-decoration: none;
+  }
+  &:hover {
+    color: $gold;
+  }
+}

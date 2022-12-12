@@ -62,7 +62,13 @@ export default function VehicleInfoCard({
 
             <tr className="table-row-formatter">
               <th className="table-header-formatter">Length</th>
-              <td className="table-data-formatter">{length} m</td>
+              <td className="table-data-formatter">
+                {length === "unknown" ? (
+                  <span>unknown</span>
+                ) : (
+                  <span>{length} m</span>
+                )}
+              </td>
             </tr>
 
             <tr className="table-row-formatter">
@@ -82,7 +88,13 @@ export default function VehicleInfoCard({
 
             <tr className="table-row-formatter">
               <th className="table-header-formatter">Cargo Capacity</th>
-              <td className="table-data-formatter">{cargo_capacity} kg</td>
+              <td className="table-data-formatter">
+                {cargo_capacity === "unknown" ? (
+                  <span>unknown</span>
+                ) : (
+                  <span>{cargo_capacity} kg</span>
+                )}
+              </td>
             </tr>
 
             <tr className="table-row-formatter">

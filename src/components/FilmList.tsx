@@ -18,14 +18,12 @@ function FilmComponent({ episode_id, title, url, count }: FilmComponentProps) {
   const linkPath = getPathFromURL(url);
 
   return (
-    <>
-      <Link to={linkPath} className="link">
-        {"Episode "}
-        {episode_id}
-        {" | "} {title}
-        {count > 0 ? ", " : ""}
-      </Link>
-    </>
+    <Link to={linkPath} className="link">
+      {"Episode "}
+      {episode_id}
+      {" | "} {title}
+      {count > 0 ? ", " : ""}
+    </Link>
   );
 }
 

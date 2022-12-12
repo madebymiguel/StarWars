@@ -17,12 +17,10 @@ function PlanetComponent({ name, url, count }: PlanetComponentProps) {
   const linkPath = getPathFromURL(url);
 
   return (
-    <>
-      <Link to={linkPath} className="link">
-        {name}
-        {count > 0 ? ", " : ""}
-      </Link>
-    </>
+    <Link to={linkPath} className="link">
+      {name}
+      {count > 0 ? ", " : ""}
+    </Link>
   );
 }
 
